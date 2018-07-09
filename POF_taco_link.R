@@ -72,7 +72,7 @@ taco <- taco %>% mutate(code5 = floor(code7/100)) %>%
 # - Choose CRU (1) if there are both 1 and 99
 taco.CRU <- taco %>%
   group_by(code7) %>% mutate(n_preps = n()) %>% 
-  filter(n_preps==1 | (n_preps>1 & preparation==1) | (n_preps>1 & preparation==99)) %>% 
+  filter(n_preps==1 | (n_preps>1 & prep.type==1) | (n_preps>1 & prep.type==99)) %>% 
   mutate(n_preps = n()) %>% slice(1) %>% select(-n_preps) 
 
 # Item numbers having multiple obs but preperation!=1 or 99

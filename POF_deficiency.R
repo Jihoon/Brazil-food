@@ -167,6 +167,7 @@ respondents <- do.call("rbind", replicate(2, respondents, simplify = FALSE)) %>%
 sum.indiv <- respondents %>% left_join(sum.indiv)
 sum.indiv[is.na(sum.indiv)] <- 0
 
+
 # Divide by 2 because this was for two days.
 avg.consumption.indiv.loc <- sum.indiv %>% 
   mutate_at(vars(ends_with("_tot")), funs(./2)) 
@@ -184,10 +185,10 @@ dem.indiv <- data.frame(d2 %>% select(-(race:student))) %>%
 avg.consumption.indiv.loc <- avg.consumption.indiv.loc %>% left_join(dem.indiv) %>% ungroup()
 avg.consumption.indiv <- avg.consumption.indiv %>% left_join(dem.indiv) %>% ungroup()
 
-tot.by.income.loc <- avg.consumption.indiv.loc %>% group_by(decile, urban, location) %>%
-  summarise_at(vars(ends_with("_tot")), weighted.mean, weight=weight, na.rm=TRUE) 
-tot.by.income <- avg.consumption.indiv %>% group_by(decile, urban) %>%
-  summarise_at(vars(ends_with("_tot")), weighted.mean, weight=weight, na.rm=TRUE) 
+# tot.by.income.loc <- avg.consumption.indiv.loc %>% group_by(decile, urban, location) %>%
+#   summarise_at(vars(ends_with("_tot")), weighted.mean, weight=weight, na.rm=TRUE) 
+# tot.by.income <- avg.consumption.indiv %>% group_by(decile, urban) %>%
+#   summarise_at(vars(ends_with("_tot")), weighted.mean, weight=weight, na.rm=TRUE) 
 
 
 
@@ -210,26 +211,35 @@ names(def.sh) <- paste0(micronutrients, "_inadeq.sh")  # positive values are def
 
 
 def.by.income <- avg.consumption.indiv %>% left_join(dris.wide) %>% 
-  bind_cols(def.sh) %>% #bind_cols(def) %>%
+  bind_cols(def.sh) %>% 
   mutate(Sugar_inadeq.sh = (Sugar.total_tot*3.87/kcal_tot - 0.1)*10) %>% #387 cal per 100g sugar, inadequate if >10%
-  group_by(urban, decile) %>%
-  # mutate_at(vars(ends_with('_inadeq')), funs(. * (.>0))) %>%
   mutate_at(vars(Calcium_inadeq.sh:Iron_inadeq.sh), funs(. * (.<1))) %>%
   mutate(Sodium_inadeq.sh = Sodium_inadeq.sh * (Sodium_inadeq.sh>=1)) %>%
   mutate(Sugar_inadeq.sh = Sugar_inadeq.sh * (Sugar_inadeq.sh>0)) %>%
-  mutate_at(vars(Calcium_inadeq.sh:Sodium_inadeq.sh), funs(ifelse(.==0, NA, .))) %>%
+  mutate_at(vars(Calcium_inadeq.sh:Sodium_inadeq.sh), funs(ifelse(.==0, NA, .))) 
+def.by.income.nat <- def.by.income %>%  # Nationwide
+  group_by(urban, decile) %>%
   summarise_at(vars(matches('_inadeq.sh')), weighted.mean, weight=weight, na.rm=TRUE) %>%
   mutate(Sugar_inadeq.sh = Sugar_inadeq.sh + 1) 
-  
+def.by.income.reg <- def.by.income %>%  # Regional
+  group_by(urban, decile, Reg) %>%
+  summarise_at(vars(matches('_inadeq.sh')), weighted.mean, weight=weight, na.rm=TRUE) %>%
+  mutate(Sugar_inadeq.sh = Sugar_inadeq.sh + 1) 
+
 pop.POF7 <- avg.consumption.indiv %>% group_by(decile, urban) %>%
+  summarise(pop=sum(weight))
+pop.POF7.reg <- avg.consumption.indiv %>% group_by(decile, urban, Reg) %>%
   summarise(pop=sum(weight))
 
 num.inadeq.by.income <- avg.consumption.indiv %>% left_join(dris.wide) %>% bind_cols(def) %>% 
   mutate(Sugar_inadeq = Sugar.total_tot*3.87/kcal_tot - 0.1) %>% #387 cal per 100g sugar, inadequate if >10%
-  mutate_at(vars(ends_with("_inadeq")), funs(.>0)) %>%
+  mutate_at(vars(ends_with("_inadeq")), funs(.>0)) 
+num.inadeq.by.income.nat <- num.inadeq.by.income %>%
   group_by(decile, urban) %>% 
-  # summarise_at(vars(ends_with("_inadeq")), funs(sum(., na.rm=TRUE))) 
   summarise_at(vars(ends_with("_inadeq")), funs(sum(.*weight, na.rm=TRUE))) %>% left_join(pop.POF7)
+num.inadeq.by.income.reg <- num.inadeq.by.income %>%
+  group_by(decile, urban, Reg) %>% 
+  summarise_at(vars(ends_with("_inadeq")), funs(sum(.*weight, na.rm=TRUE))) %>% left_join(pop.POF7.reg)
 
 
 
@@ -237,33 +247,43 @@ library(RColorBrewer)
 library(directlabels)
 
 # Percentage of pop with inadequacy
-pop.share.inadeq <- num.inadeq.by.income %>% #left_join(pop.POF7) %>%
-  mutate_at(vars(ends_with("inadeq")), funs(./pop)) %>% arrange(urban, decile) %>% select(-pop) %>%
-  gather(key=nutrient, value=inadeq, -urban, -decile) %>% ungroup() %>%
+# 1. National
+pop.share.inadeq <- num.inadeq.by.income.nat %>%
+  mutate_at(vars(ends_with("inadeq")), funs(./pop)) %>%
+  arrange(urban, decile) %>% select(-pop) %>%
+  gather(key=nutrient, value=inadeq, -urban, -decile) %>% 
+  ungroup() %>%
   mutate(nutrient=gsub('_inadeq', '', nutrient), urban=factor(urban, labels=c("Rural", "Urban")), 
          decile=as.numeric(gsub('decile', '', decile))) %>% 
   mutate(nutrient=dplyr::recode(nutrient, Vita="Vitamin A", Vite="Vitamin E", Vitc="Vitamin C"))
 
-size.inadeq <- def.by.income %>% 
-  arrange(urban, decile) %>% 
-  gather(key=nutrient, value=excess.deficiency, -urban, -decile) %>% ungroup() %>%
+size.inadeq <- def.by.income.nat %>% 
+  arrange(urban, decile) %>%
+  gather(key=nutrient, value=excess.deficiency, -urban, -decile) %>%
+  ungroup() %>%
   mutate(nutrient=gsub('_inadeq.sh', '', nutrient), urban=factor(urban, labels=c("Rural", "Urban")), 
          decile=as.numeric(gsub('decile', '', decile))) %>% 
   mutate(nutrient=dplyr::recode(nutrient, Vita="Vitamin A", Vite="Vitamin E", Vitc="Vitamin C"))
 
-ggplot(pop.share.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), aes(x=decile, y=inadeq, color=nutrient, group=nutrient)) +
+g1 <- ggplot(pop.share.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), 
+             aes(x=decile, y=inadeq, color=nutrient, group=nutrient),
+             environment = environment()) +
   geom_line(size=2) +
   facet_grid(~urban, scales="free_y") +
   labs(y="Prevalence of inadequacy") + 
   scale_x_continuous(breaks=1:10) 
 
-ggplot(pop.share.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), aes(x=decile, y=inadeq, color=nutrient, group=nutrient)) +
+g2 <- ggplot(pop.share.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), 
+             aes(x=decile, y=inadeq, color=nutrient, group=nutrient),
+             environment = environment()) +
   geom_line(size=2) +
   facet_grid(~urban, scales="free_y") +
   labs(y="Prevalence of inadequacy") + 
-  scale_x_continuous(breaks=1:10)
+  scale_x_continuous(breaks=1:10) 
 
-ggplot(size.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient)) +
+g3 <- ggplot(size.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), 
+            aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient),
+            environment = environment()) +
   geom_line(size=2) +
   facet_grid(~urban, scales="free_y") +
   labs(y="Share of requirement") + 
@@ -271,7 +291,9 @@ ggplot(size.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), aes(x=deci
   theme(legend.position="none") +
   geom_dl(aes(label = nutrient), method = list(cex = 0.8, dl.trans(y=y+0.2), "smart.grid"))
 
-ggplot(size.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient)) +
+g4 <- ggplot(size.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), 
+             aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient),
+             environment = environment()) +
   geom_line(size=2) +
   facet_grid(~urban, scales="free_y") +
   labs(y="Share of recommendation") + 
@@ -279,10 +301,82 @@ ggplot(size.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), aes(x=decile,
   theme(legend.position="none") +
   geom_dl(aes(label = nutrient), method = list(cex = 0.8, dl.trans(y=y+0.2), "smart.grid"))
 
+for (i in list(g1, g2, g3, g4)) {
+  windows(record=TRUE, width=6, height=6)
+  print(i)
+}
+  
+
+# 2. Regional
+pop.share.inadeq <- num.inadeq.by.income.reg %>%
+  mutate_at(vars(ends_with("inadeq")), funs(./pop)) %>%
+  arrange(urban, decile, Reg) %>% select(-pop) %>%
+  gather(key=nutrient, value=inadeq, -urban, -decile, -Reg) %>% 
+  ungroup() %>%
+  mutate(nutrient=gsub('_inadeq', '', nutrient), urban=factor(urban, labels=c("Rural", "Urban")), 
+         decile=as.numeric(gsub('decile', '', decile))) %>% 
+  mutate(nutrient=dplyr::recode(nutrient, Vita="Vitamin A", Vite="Vitamin E", Vitc="Vitamin C"))
+
+size.inadeq <- def.by.income.reg %>% 
+  arrange(urban, decile, Reg) %>%
+  gather(key=nutrient, value=excess.deficiency, -urban, -decile, -Reg) %>%
+  ungroup() %>%
+  mutate(nutrient=gsub('_inadeq.sh', '', nutrient), urban=factor(urban, labels=c("Rural", "Urban")), 
+         decile=as.numeric(gsub('decile', '', decile))) %>% 
+  mutate(nutrient=dplyr::recode(nutrient, Vita="Vitamin A", Vite="Vitamin E", Vitc="Vitamin C"))
+
+g1 <- ggplot(pop.share.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), 
+             aes(x=decile, y=inadeq, color=nutrient, group=nutrient),
+             environment = environment()) +
+  geom_line(size=2) +
+  facet_grid(Reg~urban, scales="free_y") +
+  labs(y="Prevalence of Deficiency") + 
+  scale_x_continuous(breaks=1:10) 
+
+g2 <- ggplot(pop.share.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), 
+             aes(x=decile, y=inadeq, color=nutrient, group=nutrient),
+             environment = environment()) +
+  geom_line(size=2) +
+  facet_grid(Reg~urban, scales="free_y") +
+  labs(y="Prevalence of Excess") + 
+  scale_x_continuous(breaks=1:10) 
+
+g3 <- ggplot(size.inadeq %>% filter(!(nutrient %in% c("Sugar", "Sodium"))), 
+             aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient),
+             environment = environment()) +
+  geom_line(size=2) +
+  facet_grid(Reg~urban, scales="free_y") +
+  labs(y="Share of Requirement") + 
+  scale_x_continuous(breaks=1:10) + 
+  theme(legend.position="none") +
+  geom_dl(aes(label = nutrient), method = list(cex = 0.8, dl.trans(y=y+0.2), "smart.grid"))
+
+g4 <- ggplot(size.inadeq %>% filter(nutrient %in% c("Sugar", "Sodium")), 
+             aes(x=decile, y=excess.deficiency, color=nutrient, group=nutrient),
+             environment = environment()) +
+  geom_line(size=2) +
+  facet_grid(Reg~urban, scales="free_y") +
+  labs(y="Share of Recommendation") + 
+  scale_x_continuous(breaks=1:10) + 
+  theme(legend.position="none") +
+  geom_dl(aes(label = nutrient), method = list(cex = 0.8, dl.trans(y=y+0.2), "smart.grid"))
+
+glist <- list(g1, g2, g3, g4)
+names(glist) <- c("pop share (sodium-sugar)", "pop share (nutrients)", "size (nutrients)", "size (sodium-sugar)")
+for (i in 1:length(glist)) {
+  # windows(record=TRUE, width=6, height=12)
+  pdf(file = paste0(workdir, "Figures/inadequacy - ", names(glist)[i], ".pdf"), width = 8, height = 15)
+  print(glist[[i]])
+  dev.off()
+}
+
+
+
 ### Nutrient supply by food group
 library(janitor)
 micronutrients.plot <- c("kcal", "Calcium", "Sodium", "Vita", "Vitc", "Vite", "Iron", "Sugar.total")
 
+# 1. National
 share.by.group <- data.frame(indiv.food) %>% left_join(POF7.items) %>% left_join(dem.indiv) %>%
   mutate_at(vars(kcal:Vita), funs(tot=.*qty_tot/100))  %>% 
   mutate(Sodium_tot=Sodium_tot+Sodium.added_tot) %>% select(-qty_tot, -Sodium.added_tot) %>% 
@@ -294,6 +388,7 @@ share.by.group <- data.frame(indiv.food) %>% left_join(POF7.items) %>% left_join
   group_by(decile, urban, wgrp) %>%
   summarise_at(vars(ends_with("_tot")), funs(sum(.*weight, na.rm=TRUE))) %>%
   mutate_at(vars(kcal_tot:Vita_tot), funs(./sum(.))) 
+# view(share.by.group) # Share with Alex
 
 share.by.group <- share.by.group %>% ungroup() %>%
   gather(key=nutrient, value=share, -urban, -decile, -wgrp) %>% rename(group=wgrp) %>%
@@ -312,7 +407,6 @@ names(CompColors) <- unique(share.by.group$group)
 CompColScale <- scale_colour_manual(values = CompColors)
 
 for (i in unique(share.by.group$nutrient)) {
-  # dev.new()
   windows(record=TRUE, width=6, height=6)
   print(
     ggplot(share.by.group %>% filter(nutrient==i),# & share>0.1), 
@@ -327,6 +421,63 @@ for (i in unique(share.by.group$nutrient)) {
       geom_dl(aes(label = group), method = list(cex = 0.8, dl.trans(y=y+0.2), "top.bumptwice")) #"top.bumptwice" #"smart.grid"
       ) 
 }
+
+# 2. Regional
+share.by.group <- data.frame(indiv.food) %>% left_join(POF7.items) %>% left_join(dem.indiv) %>%
+  mutate_at(vars(kcal:Vita), funs(tot=.*qty_tot/100))  %>% 
+  mutate(Sodium_tot=Sodium_tot+Sodium.added_tot) %>% select(-qty_tot, -Sodium.added_tot) %>% 
+  left_join(indiv.sugar) %>%
+  mutate_cond(!is.na(Sugar.added_tot.sep), 
+              Sugar.added_tot=Sugar.added_tot+Sugar.added_tot.sep,
+              Sugar.total_tot=Sugar.total_tot+Sugar.added_tot.sep) %>%  # adding sugar consumed as a separate item
+  select(-Sugar.added_tot.sep) %>%
+  group_by(decile, urban, Reg, wgrp) %>%
+  summarise_at(vars(ends_with("_tot")), funs(sum(.*weight, na.rm=TRUE))) %>%
+  mutate_at(vars(kcal_tot:Vita_tot), funs(./sum(.))) 
+# view(share.by.group) # Share with Alex
+
+share.by.group <- share.by.group %>% ungroup() %>%
+  gather(key=nutrient, value=share, -urban, -decile, -wgrp, -Reg) %>% rename(group=wgrp) %>%
+  mutate(nutrient=gsub('_tot', '', nutrient), urban=factor(urban, labels=c("Rural", "Urban")), 
+         decile=as.numeric(gsub('decile', '', decile))) 
+
+keep.plot <- share.by.group %>% ungroup() %>% group_by(urban, group, Reg, nutrient) %>% summarise(max.share=max(share)) %>% 
+  mutate(keep.plot=max.share>0.10) %>% select(-max.share)
+
+share.by.group <- share.by.group %>% left_join(keep.plot) %>% filter(keep.plot & nutrient %in% micronutrients.plot) %>% 
+  mutate(nutrient=dplyr::recode(nutrient, Vita="Vitamin A", Vite="Vitamin E", Vitc="Vitamin C"))
+
+library(grDevices)
+for (i in unique(share.by.group$nutrient)) {
+  # windows(record=TRUE, width=6, height=12)
+  # print(
+  pdf(file = paste0(workdir, "Figures/supply share - ", i, ".pdf"), width = 8, height = 15)
+  g <- ggplot(share.by.group %>% filter(nutrient==i),# & share>0.1), 
+           aes(x=decile, y=share, color=group, group=group)) +
+      geom_line(size=2) + 
+      scale_colour_manual(values = CompColors, guide=FALSE) +
+      facet_grid(Reg~urban, scales="free_y") +
+      labs(y="Supply share", title= i) + 
+      theme_dark() +
+      scale_x_continuous(breaks=1:10)+
+      # geom_dl(aes(label = group), method = list(box.color = NA, "angled.boxes")) 
+      geom_dl(aes(label = group), method = list(cex = 0.8, dl.trans(y=y+0.2), "top.bumptwice")) #"top.bumptwice" #"smart.grid"
+  print(g)
+  dev.off()
+  # ) 
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Some test code for understanding the result

@@ -223,6 +223,8 @@ cons = char2num(t_despesa_individual_s) %>%
   select(id, code7, POF.item=product, val_tot, eatout) 
 
 
+
+
 ### Explore the individual survey (POF7)
 # 'local' seems to be at home or outside.
 # No need for many variables here like income, weight.
