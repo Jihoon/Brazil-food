@@ -1,0 +1,15 @@
+fuel,unit,GJ,kJ
+"CNG, transport",l,0.039348,39348
+Coal,kg,0.02705,27050
+"Diesel, non-transport",l,0.03552,35520
+"Diesel, transport",l,0.03552,35520
+Electricity,kWh,0.0036,3600
+"Ethanol, non-transport",l,0.02134,21340
+"Ethanol, transport",l,0.02134,21340
+Firewood,kg,0.01298,12980
+"Gasoline, non-transport",l,0.03222,32220
+"Gasoline, transport",l,0.03222,32220
+Kerosene,l,0.0344,34400
+LPG,kg,0.046472727,46472.72727
+Pipeline natural gas,l,0.00001884,18.84
+Sawdust,kg,0.013,13000

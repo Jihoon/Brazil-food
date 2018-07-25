@@ -1,0 +1,391 @@
+Domain Code,Domain,Area Code,Area,Element Code,Element,Item Code,Item,Year Code,Year,Unit,Value,Flag,Flag Description
+QC,Crops,21,Brazil,5510,Production,515,Apples,2010,2010,tonnes,1279124,,Official data
+QC,Crops,21,Brazil,5510,Production,515,Apples,2011,2011,tonnes,1338995,,Official data
+QC,Crops,21,Brazil,5510,Production,515,Apples,2012,2012,tonnes,1339771,,Official data
+QC,Crops,21,Brazil,5510,Production,515,Apples,2013,2013,tonnes,1231472,,Official data
+QC,Crops,21,Brazil,5510,Production,515,Apples,2014,2014,tonnes,1378617,,Official data
+QC,Crops,21,Brazil,5510,Production,572,Avocados,2010,2010,tonnes,153189,,Official data
+QC,Crops,21,Brazil,5510,Production,572,Avocados,2011,2011,tonnes,160376,,Official data
+QC,Crops,21,Brazil,5510,Production,572,Avocados,2012,2012,tonnes,159903,,Official data
+QC,Crops,21,Brazil,5510,Production,572,Avocados,2013,2013,tonnes,157482,,Official data
+QC,Crops,21,Brazil,5510,Production,572,Avocados,2014,2014,tonnes,156699,,Official data
+QC,Crops,21,Brazil,5510,Production,486,Bananas,2010,2010,tonnes,6969306,,Official data
+QC,Crops,21,Brazil,5510,Production,486,Bananas,2011,2011,tonnes,7329471,,Official data
+QC,Crops,21,Brazil,5510,Production,486,Bananas,2012,2012,tonnes,6902184,,Official data
+QC,Crops,21,Brazil,5510,Production,486,Bananas,2013,2013,tonnes,6892622,,Official data
+QC,Crops,21,Brazil,5510,Production,486,Bananas,2014,2014,tonnes,6953747,,Official data
+QC,Crops,21,Brazil,5510,Production,44,Barley,2010,2010,tonnes,278558,,Official data
+QC,Crops,21,Brazil,5510,Production,44,Barley,2011,2011,tonnes,303872,,Official data
+QC,Crops,21,Brazil,5510,Production,44,Barley,2012,2012,tonnes,265025,,Official data
+QC,Crops,21,Brazil,5510,Production,44,Barley,2013,2013,tonnes,330682,,Official data
+QC,Crops,21,Brazil,5510,Production,44,Barley,2014,2014,tonnes,251539,,Official data
+QC,Crops,21,Brazil,5510,Production,782,"Bastfibres, other",2010,2010,tonnes,13216,,Official data
+QC,Crops,21,Brazil,5510,Production,782,"Bastfibres, other",2011,2011,tonnes,15611,,Official data
+QC,Crops,21,Brazil,5510,Production,782,"Bastfibres, other",2012,2012,tonnes,8467,,Official data
+QC,Crops,21,Brazil,5510,Production,782,"Bastfibres, other",2013,2013,tonnes,9502,,Official data
+QC,Crops,21,Brazil,5510,Production,782,"Bastfibres, other",2014,2014,tonnes,8130,,Official data
+QC,Crops,21,Brazil,5510,Production,176,"Beans, dry",2010,2010,tonnes,3158905,,Official data
+QC,Crops,21,Brazil,5510,Production,176,"Beans, dry",2011,2011,tonnes,3435366,,Official data
+QC,Crops,21,Brazil,5510,Production,176,"Beans, dry",2012,2012,tonnes,2794854,,Official data
+QC,Crops,21,Brazil,5510,Production,176,"Beans, dry",2013,2013,tonnes,2892599,,Official data
+QC,Crops,21,Brazil,5510,Production,176,"Beans, dry",2014,2014,tonnes,3294586,,Official data
+QC,Crops,21,Brazil,5510,Production,216,"Brazil nuts, with shell",2010,2010,tonnes,40357,,Official data
+QC,Crops,21,Brazil,5510,Production,216,"Brazil nuts, with shell",2011,2011,tonnes,42152,,Official data
+QC,Crops,21,Brazil,5510,Production,216,"Brazil nuts, with shell",2012,2012,tonnes,38805,,Official data
+QC,Crops,21,Brazil,5510,Production,216,"Brazil nuts, with shell",2013,2013,tonnes,39000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,216,"Brazil nuts, with shell",2014,2014,tonnes,39000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,181,"Broad beans, horse beans, dry",2010,2010,tonnes,7349,,Official data
+QC,Crops,21,Brazil,5510,Production,181,"Broad beans, horse beans, dry",2011,2011,tonnes,16680,,Official data
+QC,Crops,21,Brazil,5510,Production,181,"Broad beans, horse beans, dry",2012,2012,tonnes,5032,,Official data
+QC,Crops,21,Brazil,5510,Production,181,"Broad beans, horse beans, dry",2013,2013,tonnes,7957,,Official data
+QC,Crops,21,Brazil,5510,Production,181,"Broad beans, horse beans, dry",2014,2014,tonnes,7680,,Official data
+QC,Crops,21,Brazil,5510,Production,89,Buckwheat,2010,2010,tonnes,55598,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,89,Buckwheat,2011,2011,tonnes,57000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,89,Buckwheat,2012,2012,tonnes,60000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,89,Buckwheat,2013,2013,tonnes,62000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,89,Buckwheat,2014,2014,tonnes,64000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,217,"Cashew nuts, with shell",2010,2010,tonnes,104342,,Official data
+QC,Crops,21,Brazil,5510,Production,217,"Cashew nuts, with shell",2011,2011,tonnes,230785,,Official data
+QC,Crops,21,Brazil,5510,Production,217,"Cashew nuts, with shell",2012,2012,tonnes,80630,,Official data
+QC,Crops,21,Brazil,5510,Production,217,"Cashew nuts, with shell",2013,2013,tonnes,109679,,Official data
+QC,Crops,21,Brazil,5510,Production,217,"Cashew nuts, with shell",2014,2014,tonnes,107713,,Official data
+QC,Crops,21,Brazil,5510,Production,591,Cashewapple,2010,2010,tonnes,1729722,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,591,Cashewapple,2011,2011,tonnes,1747476,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,591,Cashewapple,2012,2012,tonnes,1805000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,591,Cashewapple,2013,2013,tonnes,1805000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,591,Cashewapple,2014,2014,tonnes,1743020,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,125,Cassava,2010,2010,tonnes,24967052,,Official data
+QC,Crops,21,Brazil,5510,Production,125,Cassava,2011,2011,tonnes,25349542,,Official data
+QC,Crops,21,Brazil,5510,Production,125,Cassava,2012,2012,tonnes,23044557,,Official data
+QC,Crops,21,Brazil,5510,Production,125,Cassava,2013,2013,tonnes,21484218,,Official data
+QC,Crops,21,Brazil,5510,Production,125,Cassava,2014,2014,tonnes,23253514,,Official data
+QC,Crops,21,Brazil,5510,Production,265,Castor oil seed,2010,2010,tonnes,95183,,Official data
+QC,Crops,21,Brazil,5510,Production,265,Castor oil seed,2011,2011,tonnes,120166,,Official data
+QC,Crops,21,Brazil,5510,Production,265,Castor oil seed,2012,2012,tonnes,25989,,Official data
+QC,Crops,21,Brazil,5510,Production,265,Castor oil seed,2013,2013,tonnes,12526,,Official data
+QC,Crops,21,Brazil,5510,Production,265,Castor oil seed,2014,2014,tonnes,37582,,Official data
+QC,Crops,21,Brazil,5510,Production,220,Chestnut,2010,2010,tonnes,0,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,220,Chestnut,2011,2011,tonnes,0,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,220,Chestnut,2012,2012,tonnes,0,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,220,Chestnut,2013,2013,tonnes,0,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,220,Chestnut,2014,2014,tonnes,0,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,661,"Cocoa, beans",2010,2010,tonnes,235389,,Official data
+QC,Crops,21,Brazil,5510,Production,661,"Cocoa, beans",2011,2011,tonnes,248524,,Official data
+QC,Crops,21,Brazil,5510,Production,661,"Cocoa, beans",2012,2012,tonnes,253211,,Official data
+QC,Crops,21,Brazil,5510,Production,661,"Cocoa, beans",2013,2013,tonnes,256186,,Official data
+QC,Crops,21,Brazil,5510,Production,661,"Cocoa, beans",2014,2014,tonnes,273793,,Official data
+QC,Crops,21,Brazil,5510,Production,249,Coconuts,2010,2010,tonnes,2843453,,Official data
+QC,Crops,21,Brazil,5510,Production,249,Coconuts,2011,2011,tonnes,2943651,,Official data
+QC,Crops,21,Brazil,5510,Production,249,Coconuts,2012,2012,tonnes,2931531,,Official data
+QC,Crops,21,Brazil,5510,Production,249,Coconuts,2013,2013,tonnes,2890286,,Official data
+QC,Crops,21,Brazil,5510,Production,249,Coconuts,2014,2014,tonnes,2919110,,Official data
+QC,Crops,21,Brazil,5510,Production,656,"Coffee, green",2010,2010,tonnes,2907265,,Official data
+QC,Crops,21,Brazil,5510,Production,656,"Coffee, green",2011,2011,tonnes,2700540,,Official data
+QC,Crops,21,Brazil,5510,Production,656,"Coffee, green",2012,2012,tonnes,3037534,,Official data
+QC,Crops,21,Brazil,5510,Production,656,"Coffee, green",2013,2013,tonnes,2964538,,Official data
+QC,Crops,21,Brazil,5510,Production,656,"Coffee, green",2014,2014,tonnes,2804070,,Official data
+QC,Crops,21,Brazil,5510,Production,767,Cotton lint,2010,2010,tonnes,973449,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,767,Cotton lint,2011,2011,tonnes,1673337,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,767,Cotton lint,2012,2012,tonnes,1639791,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,767,Cotton lint,2013,2013,tonnes,1127675,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,767,Cotton lint,2014,2014,tonnes,1412227,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,329,Cottonseed,2010,2010,tonnes,1858402,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,329,Cottonseed,2011,2011,tonnes,3194552,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,329,Cottonseed,2012,2012,tonnes,3130510,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,329,Cottonseed,2013,2013,tonnes,2152833,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,329,Cottonseed,2014,2014,tonnes,2669161,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,821,Fibre crops nes,2010,2010,tonnes,99835,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,821,Fibre crops nes,2011,2011,tonnes,100054,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,821,Fibre crops nes,2012,2012,tonnes,100273,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,821,Fibre crops nes,2013,2013,tonnes,100493,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,821,Fibre crops nes,2014,2014,tonnes,100712,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,569,Figs,2010,2010,tonnes,25727,,Official data
+QC,Crops,21,Brazil,5510,Production,569,Figs,2011,2011,tonnes,26233,,Official data
+QC,Crops,21,Brazil,5510,Production,569,Figs,2012,2012,tonnes,28010,,Official data
+QC,Crops,21,Brazil,5510,Production,569,Figs,2013,2013,tonnes,28253,,Official data
+QC,Crops,21,Brazil,5510,Production,569,Figs,2014,2014,tonnes,28053,,Official data
+QC,Crops,21,Brazil,5510,Production,603,"Fruit, tropical fresh nes",2010,2010,tonnes,922334,,Official data
+QC,Crops,21,Brazil,5510,Production,603,"Fruit, tropical fresh nes",2011,2011,tonnes,923035,,Official data
+QC,Crops,21,Brazil,5510,Production,603,"Fruit, tropical fresh nes",2012,2012,tonnes,776097,,Official data
+QC,Crops,21,Brazil,5510,Production,603,"Fruit, tropical fresh nes",2013,2013,tonnes,838244,,Official data
+QC,Crops,21,Brazil,5510,Production,603,"Fruit, tropical fresh nes",2014,2014,tonnes,823284,,Official data
+QC,Crops,21,Brazil,5510,Production,406,Garlic,2010,2010,tonnes,104124,,Official data
+QC,Crops,21,Brazil,5510,Production,406,Garlic,2011,2011,tonnes,143293,,Official data
+QC,Crops,21,Brazil,5510,Production,406,Garlic,2012,2012,tonnes,107009,,Official data
+QC,Crops,21,Brazil,5510,Production,406,Garlic,2013,2013,tonnes,102232,,Official data
+QC,Crops,21,Brazil,5510,Production,406,Garlic,2014,2014,tonnes,93769,,Official data
+QC,Crops,21,Brazil,5510,Production,507,Grapefruit (inc. pomelos),2010,2010,tonnes,75188,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,507,Grapefruit (inc. pomelos),2011,2011,tonnes,76309,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,507,Grapefruit (inc. pomelos),2012,2012,tonnes,78000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,507,Grapefruit (inc. pomelos),2013,2013,tonnes,78000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,507,Grapefruit (inc. pomelos),2014,2014,tonnes,78491,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,560,Grapes,2010,2010,tonnes,1355461,,Official data
+QC,Crops,21,Brazil,5510,Production,560,Grapes,2011,2011,tonnes,1495336,,Official data
+QC,Crops,21,Brazil,5510,Production,560,Grapes,2012,2012,tonnes,1514768,,Official data
+QC,Crops,21,Brazil,5510,Production,560,Grapes,2013,2013,tonnes,1439535,,Official data
+QC,Crops,21,Brazil,5510,Production,560,Grapes,2014,2014,tonnes,1454183,,Official data
+QC,Crops,21,Brazil,5510,Production,242,"Groundnuts, with shell",2010,2010,tonnes,261455,,Official data
+QC,Crops,21,Brazil,5510,Production,242,"Groundnuts, with shell",2011,2011,tonnes,311409,,Official data
+QC,Crops,21,Brazil,5510,Production,242,"Groundnuts, with shell",2012,2012,tonnes,334224,,Official data
+QC,Crops,21,Brazil,5510,Production,242,"Groundnuts, with shell",2013,2013,tonnes,389783,,Official data
+QC,Crops,21,Brazil,5510,Production,242,"Groundnuts, with shell",2014,2014,tonnes,402626,,Official data
+QC,Crops,21,Brazil,5510,Production,839,"Gums, natural",2010,2010,tonnes,55,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,839,"Gums, natural",2011,2011,tonnes,60,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,839,"Gums, natural",2012,2012,tonnes,65,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,839,"Gums, natural",2013,2013,tonnes,60,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,839,"Gums, natural",2014,2014,tonnes,65,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,780,Jute,2010,2010,tonnes,934,,Official data
+QC,Crops,21,Brazil,5510,Production,780,Jute,2011,2011,tonnes,1054,,Official data
+QC,Crops,21,Brazil,5510,Production,780,Jute,2012,2012,tonnes,993,,Official data
+QC,Crops,21,Brazil,5510,Production,780,Jute,2013,2013,tonnes,490,,Official data
+QC,Crops,21,Brazil,5510,Production,780,Jute,2014,2014,tonnes,1172,,Official data
+QC,Crops,21,Brazil,5510,Production,497,Lemons and limes,2010,2010,tonnes,1020741,,Official data
+QC,Crops,21,Brazil,5510,Production,497,Lemons and limes,2011,2011,tonnes,1126736,,Official data
+QC,Crops,21,Brazil,5510,Production,497,Lemons and limes,2012,2012,tonnes,1208275,,Official data
+QC,Crops,21,Brazil,5510,Production,497,Lemons and limes,2013,2013,tonnes,1169370,,Official data
+QC,Crops,21,Brazil,5510,Production,497,Lemons and limes,2014,2014,tonnes,1101799,,Official data
+QC,Crops,21,Brazil,5510,Production,333,Linseed,2010,2010,tonnes,16159,,Official data
+QC,Crops,21,Brazil,5510,Production,333,Linseed,2011,2011,tonnes,11046,,Official data
+QC,Crops,21,Brazil,5510,Production,333,Linseed,2012,2012,tonnes,7338,,Official data
+QC,Crops,21,Brazil,5510,Production,333,Linseed,2013,2013,tonnes,9734,,Official data
+QC,Crops,21,Brazil,5510,Production,333,Linseed,2014,2014,tonnes,4839,,Official data
+QC,Crops,21,Brazil,5510,Production,56,Maize,2010,2010,tonnes,55364271,,Official data
+QC,Crops,21,Brazil,5510,Production,56,Maize,2011,2011,tonnes,55660235,,Official data
+QC,Crops,21,Brazil,5510,Production,56,Maize,2012,2012,tonnes,71072810,,Official data
+QC,Crops,21,Brazil,5510,Production,56,Maize,2013,2013,tonnes,80273172,,Official data
+QC,Crops,21,Brazil,5510,Production,56,Maize,2014,2014,tonnes,79881614,,Official data
+QC,Crops,21,Brazil,5510,Production,571,"Mangoes, mangosteens, guavas",2010,2010,tonnes,1189651,,Official data
+QC,Crops,21,Brazil,5510,Production,571,"Mangoes, mangosteens, guavas",2011,2011,tonnes,1249453,,Official data
+QC,Crops,21,Brazil,5510,Production,571,"Mangoes, mangosteens, guavas",2012,2012,tonnes,1175735,,Official data
+QC,Crops,21,Brazil,5510,Production,571,"Mangoes, mangosteens, guavas",2013,2013,tonnes,1163000,,Official data
+QC,Crops,21,Brazil,5510,Production,571,"Mangoes, mangosteens, guavas",2014,2014,tonnes,1132463,,Official data
+QC,Crops,21,Brazil,5510,Production,671,Maté,2010,2010,tonnes,602559,,Official data
+QC,Crops,21,Brazil,5510,Production,671,Maté,2011,2011,tonnes,443635,,Official data
+QC,Crops,21,Brazil,5510,Production,671,Maté,2012,2012,tonnes,513256,,Official data
+QC,Crops,21,Brazil,5510,Production,671,Maté,2013,2013,tonnes,515451,,Official data
+QC,Crops,21,Brazil,5510,Production,671,Maté,2014,2014,tonnes,602559,,Official data
+QC,Crops,21,Brazil,5510,Production,568,"Melons, other (inc.cantaloupes)",2010,2010,tonnes,478392,,Official data
+QC,Crops,21,Brazil,5510,Production,568,"Melons, other (inc.cantaloupes)",2011,2011,tonnes,499330,,Official data
+QC,Crops,21,Brazil,5510,Production,568,"Melons, other (inc.cantaloupes)",2012,2012,tonnes,575386,,Official data
+QC,Crops,21,Brazil,5510,Production,568,"Melons, other (inc.cantaloupes)",2013,2013,tonnes,565900,,Official data
+QC,Crops,21,Brazil,5510,Production,568,"Melons, other (inc.cantaloupes)",2014,2014,tonnes,589939,,Official data
+QC,Crops,21,Brazil,5510,Production,234,"Nuts, nes",2010,2010,tonnes,2686,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,234,"Nuts, nes",2011,2011,tonnes,2726,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,234,"Nuts, nes",2012,2012,tonnes,2765,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,234,"Nuts, nes",2013,2013,tonnes,2805,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,234,"Nuts, nes",2014,2014,tonnes,2845,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,75,Oats,2010,2010,tonnes,395056,,Official data
+QC,Crops,21,Brazil,5510,Production,75,Oats,2011,2011,tonnes,373009,,Official data
+QC,Crops,21,Brazil,5510,Production,75,Oats,2012,2012,tonnes,431024,,Official data
+QC,Crops,21,Brazil,5510,Production,75,Oats,2013,2013,tonnes,520397,,Official data
+QC,Crops,21,Brazil,5510,Production,75,Oats,2014,2014,tonnes,432136,,Official data
+QC,Crops,21,Brazil,5510,Production,257,"Oil, palm",2010,2010,tonnes,250000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,257,"Oil, palm",2011,2011,tonnes,270000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,257,"Oil, palm",2012,2012,tonnes,310000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,257,"Oil, palm",2013,2013,tonnes,340000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,257,"Oil, palm",2014,2014,tonnes,370000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,254,"Oil, palm fruit",2010,2010,tonnes,1292713,,Official data
+QC,Crops,21,Brazil,5510,Production,254,"Oil, palm fruit",2011,2011,tonnes,1301192,,Official data
+QC,Crops,21,Brazil,5510,Production,254,"Oil, palm fruit",2012,2012,tonnes,1240992,,Official data
+QC,Crops,21,Brazil,5510,Production,254,"Oil, palm fruit",2013,2013,tonnes,1246835,,Official data
+QC,Crops,21,Brazil,5510,Production,254,"Oil, palm fruit",2014,2014,tonnes,1393873,,Official data
+QC,Crops,21,Brazil,5510,Production,339,Oilseeds nes,2010,2010,tonnes,22810,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,339,Oilseeds nes,2011,2011,tonnes,23667,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,339,Oilseeds nes,2012,2012,tonnes,25500,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,339,Oilseeds nes,2013,2013,tonnes,25500,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,339,Oilseeds nes,2014,2014,tonnes,25767,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,260,Olives,2010,2010,tonnes,56,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,260,Olives,2011,2011,tonnes,77,,Official data
+QC,Crops,21,Brazil,5510,Production,260,Olives,2012,2012,tonnes,291,,Official data
+QC,Crops,21,Brazil,5510,Production,260,Olives,2013,2013,tonnes,265,,Official data
+QC,Crops,21,Brazil,5510,Production,260,Olives,2014,2014,tonnes,512,,Official data
+QC,Crops,21,Brazil,5510,Production,403,"Onions, dry",2010,2010,tonnes,1753311,,Official data
+QC,Crops,21,Brazil,5510,Production,403,"Onions, dry",2011,2011,tonnes,1523316,,Official data
+QC,Crops,21,Brazil,5510,Production,403,"Onions, dry",2012,2012,tonnes,1519022,,Official data
+QC,Crops,21,Brazil,5510,Production,403,"Onions, dry",2013,2013,tonnes,1538929,,Official data
+QC,Crops,21,Brazil,5510,Production,403,"Onions, dry",2014,2014,tonnes,1646498,,Official data
+QC,Crops,21,Brazil,5510,Production,490,Oranges,2010,2010,tonnes,18503139,,Official data
+QC,Crops,21,Brazil,5510,Production,490,Oranges,2011,2011,tonnes,19811064,,Official data
+QC,Crops,21,Brazil,5510,Production,490,Oranges,2012,2012,tonnes,18012560,,Official data
+QC,Crops,21,Brazil,5510,Production,490,Oranges,2013,2013,tonnes,17549536,,Official data
+QC,Crops,21,Brazil,5510,Production,490,Oranges,2014,2014,tonnes,16928457,,Official data
+QC,Crops,21,Brazil,5510,Production,256,Palm kernels,2010,2010,tonnes,208900,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,256,Palm kernels,2011,2011,tonnes,208900,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,256,Palm kernels,2012,2012,tonnes,210000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,256,Palm kernels,2013,2013,tonnes,226700,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,256,Palm kernels,2014,2014,tonnes,206900,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,600,Papayas,2010,2010,tonnes,1871961,,Official data
+QC,Crops,21,Brazil,5510,Production,600,Papayas,2011,2011,tonnes,1854343,,Official data
+QC,Crops,21,Brazil,5510,Production,600,Papayas,2012,2012,tonnes,1517696,,Official data
+QC,Crops,21,Brazil,5510,Production,600,Papayas,2013,2013,tonnes,1582638,,Official data
+QC,Crops,21,Brazil,5510,Production,600,Papayas,2014,2014,tonnes,1603351,,Official data
+QC,Crops,21,Brazil,5510,Production,534,Peaches and nectarines,2010,2010,tonnes,222402,,Official data
+QC,Crops,21,Brazil,5510,Production,534,Peaches and nectarines,2011,2011,tonnes,222180,,Official data
+QC,Crops,21,Brazil,5510,Production,534,Peaches and nectarines,2012,2012,tonnes,232987,,Official data
+QC,Crops,21,Brazil,5510,Production,534,Peaches and nectarines,2013,2013,tonnes,217706,,Official data
+QC,Crops,21,Brazil,5510,Production,534,Peaches and nectarines,2014,2014,tonnes,211109,,Official data
+QC,Crops,21,Brazil,5510,Production,521,Pears,2010,2010,tonnes,16397,,Official data
+QC,Crops,21,Brazil,5510,Production,521,Pears,2011,2011,tonnes,20532,,Official data
+QC,Crops,21,Brazil,5510,Production,521,Pears,2012,2012,tonnes,21990,,Official data
+QC,Crops,21,Brazil,5510,Production,521,Pears,2013,2013,tonnes,22078,,Official data
+QC,Crops,21,Brazil,5510,Production,521,Pears,2014,2014,tonnes,19096,,Official data
+QC,Crops,21,Brazil,5510,Production,187,"Peas, dry",2010,2010,tonnes,5909,,Official data
+QC,Crops,21,Brazil,5510,Production,187,"Peas, dry",2011,2011,tonnes,3901,,Official data
+QC,Crops,21,Brazil,5510,Production,187,"Peas, dry",2012,2012,tonnes,4283,,Official data
+QC,Crops,21,Brazil,5510,Production,187,"Peas, dry",2013,2013,tonnes,2992,,Official data
+QC,Crops,21,Brazil,5510,Production,187,"Peas, dry",2014,2014,tonnes,3692,,Official data
+QC,Crops,21,Brazil,5510,Production,687,Pepper (piper spp.),2010,2010,tonnes,52137,,Official data
+QC,Crops,21,Brazil,5510,Production,687,Pepper (piper spp.),2011,2011,tonnes,44610,,Official data
+QC,Crops,21,Brazil,5510,Production,687,Pepper (piper spp.),2012,2012,tonnes,43345,,Official data
+QC,Crops,21,Brazil,5510,Production,687,Pepper (piper spp.),2013,2013,tonnes,42312,,Official data
+QC,Crops,21,Brazil,5510,Production,687,Pepper (piper spp.),2014,2014,tonnes,42339,,Official data
+QC,Crops,21,Brazil,5510,Production,587,Persimmons,2010,2010,tonnes,167215,,Official data
+QC,Crops,21,Brazil,5510,Production,587,Persimmons,2011,2011,tonnes,154625,,Official data
+QC,Crops,21,Brazil,5510,Production,587,Persimmons,2012,2012,tonnes,158241,,Official data
+QC,Crops,21,Brazil,5510,Production,587,Persimmons,2013,2013,tonnes,173169,,Official data
+QC,Crops,21,Brazil,5510,Production,587,Persimmons,2014,2014,tonnes,182290,,Official data
+QC,Crops,21,Brazil,5510,Production,574,Pineapples,2010,2010,tonnes,2205586,,Official data
+QC,Crops,21,Brazil,5510,Production,574,Pineapples,2011,2011,tonnes,2365455,,Official data
+QC,Crops,21,Brazil,5510,Production,574,Pineapples,2012,2012,tonnes,2546601,,Official data
+QC,Crops,21,Brazil,5510,Production,574,Pineapples,2013,2013,tonnes,2483831,,Official data
+QC,Crops,21,Brazil,5510,Production,574,Pineapples,2014,2014,tonnes,2646243,,Official data
+QC,Crops,21,Brazil,5510,Production,116,Potatoes,2010,2010,tonnes,3547510,,Official data
+QC,Crops,21,Brazil,5510,Production,116,Potatoes,2011,2011,tonnes,3917234,,Official data
+QC,Crops,21,Brazil,5510,Production,116,Potatoes,2012,2012,tonnes,3731798,,Official data
+QC,Crops,21,Brazil,5510,Production,116,Potatoes,2013,2013,tonnes,3553772,,Official data
+QC,Crops,21,Brazil,5510,Production,116,Potatoes,2014,2014,tonnes,3689836,,Official data
+QC,Crops,21,Brazil,5510,Production,754,"Pyrethrum, dried",2010,2010,tonnes,,M,Data not available
+QC,Crops,21,Brazil,5510,Production,754,"Pyrethrum, dried",2011,2011,tonnes,,M,Data not available
+QC,Crops,21,Brazil,5510,Production,754,"Pyrethrum, dried",2012,2012,tonnes,,M,Data not available
+QC,Crops,21,Brazil,5510,Production,754,"Pyrethrum, dried",2013,2013,tonnes,,M,Data not available
+QC,Crops,21,Brazil,5510,Production,754,"Pyrethrum, dried",2014,2014,tonnes,,M,Data not available
+QC,Crops,21,Brazil,5510,Production,523,Quinces,2010,2010,tonnes,964,,Official data
+QC,Crops,21,Brazil,5510,Production,523,Quinces,2011,2011,tonnes,780,,Official data
+QC,Crops,21,Brazil,5510,Production,523,Quinces,2012,2012,tonnes,704,,Official data
+QC,Crops,21,Brazil,5510,Production,523,Quinces,2013,2013,tonnes,633,,Official data
+QC,Crops,21,Brazil,5510,Production,523,Quinces,2014,2014,tonnes,570,,Official data
+QC,Crops,21,Brazil,5510,Production,788,Ramie,2010,2010,tonnes,831,,Official data
+QC,Crops,21,Brazil,5510,Production,788,Ramie,2011,2011,tonnes,971,,Official data
+QC,Crops,21,Brazil,5510,Production,788,Ramie,2012,2012,tonnes,624,,Official data
+QC,Crops,21,Brazil,5510,Production,788,Ramie,2013,2013,tonnes,495,,Official data
+QC,Crops,21,Brazil,5510,Production,788,Ramie,2014,2014,tonnes,108,,Official data
+QC,Crops,21,Brazil,5510,Production,270,Rapeseed,2010,2010,tonnes,70000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,270,Rapeseed,2011,2011,tonnes,52000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,270,Rapeseed,2012,2012,tonnes,61000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,270,Rapeseed,2013,2013,tonnes,36000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,270,Rapeseed,2014,2014,tonnes,55000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,27,"Rice, paddy",2010,2010,tonnes,11235986,,Official data
+QC,Crops,21,Brazil,5510,Production,27,"Rice, paddy",2011,2011,tonnes,13476994,,Official data
+QC,Crops,21,Brazil,5510,Production,27,"Rice, paddy",2012,2012,tonnes,11549881,,Official data
+QC,Crops,21,Brazil,5510,Production,27,"Rice, paddy",2013,2013,tonnes,11782549,,Official data
+QC,Crops,21,Brazil,5510,Production,27,"Rice, paddy",2014,2014,tonnes,12175602,,Official data
+QC,Crops,21,Brazil,5510,Production,836,"Rubber, natural",2010,2010,tonnes,133981,,Official data
+QC,Crops,21,Brazil,5510,Production,836,"Rubber, natural",2011,2011,tonnes,164498,,Official data
+QC,Crops,21,Brazil,5510,Production,836,"Rubber, natural",2012,2012,tonnes,177088,,Official data
+QC,Crops,21,Brazil,5510,Production,836,"Rubber, natural",2013,2013,tonnes,185725,,Official data
+QC,Crops,21,Brazil,5510,Production,836,"Rubber, natural",2014,2014,tonnes,192389,,Official data
+QC,Crops,21,Brazil,5510,Production,71,Rye,2010,2010,tonnes,3165,,Official data
+QC,Crops,21,Brazil,5510,Production,71,Rye,2011,2011,tonnes,3519,,Official data
+QC,Crops,21,Brazil,5510,Production,71,Rye,2012,2012,tonnes,7777,,Official data
+QC,Crops,21,Brazil,5510,Production,71,Rye,2013,2013,tonnes,5743,,Official data
+QC,Crops,21,Brazil,5510,Production,71,Rye,2014,2014,tonnes,4452,,Official data
+QC,Crops,21,Brazil,5510,Production,328,Seed cotton,2010,2010,tonnes,2949845,,Official data
+QC,Crops,21,Brazil,5510,Production,328,Seed cotton,2011,2011,tonnes,5070717,,Official data
+QC,Crops,21,Brazil,5510,Production,328,Seed cotton,2012,2012,tonnes,4969064,,Official data
+QC,Crops,21,Brazil,5510,Production,328,Seed cotton,2013,2013,tonnes,3417196,,Official data
+QC,Crops,21,Brazil,5510,Production,328,Seed cotton,2014,2014,tonnes,4236763,,Official data
+QC,Crops,21,Brazil,5510,Production,289,Sesame seed,2010,2010,tonnes,5000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,289,Sesame seed,2011,2011,tonnes,6000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,289,Sesame seed,2012,2012,tonnes,6000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,289,Sesame seed,2013,2013,tonnes,7000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,289,Sesame seed,2014,2014,tonnes,7000,*,Unofficial figure
+QC,Crops,21,Brazil,5510,Production,789,Sisal,2010,2010,tonnes,246535,,Official data
+QC,Crops,21,Brazil,5510,Production,789,Sisal,2011,2011,tonnes,283797,,Official data
+QC,Crops,21,Brazil,5510,Production,789,Sisal,2012,2012,tonnes,89128,,Official data
+QC,Crops,21,Brazil,5510,Production,789,Sisal,2013,2013,tonnes,150584,,Official data
+QC,Crops,21,Brazil,5510,Production,789,Sisal,2014,2014,tonnes,138008,,Official data
+QC,Crops,21,Brazil,5510,Production,83,Sorghum,2010,2010,tonnes,1532064,,Official data
+QC,Crops,21,Brazil,5510,Production,83,Sorghum,2011,2011,tonnes,1931135,,Official data
+QC,Crops,21,Brazil,5510,Production,83,Sorghum,2012,2012,tonnes,2016873,,Official data
+QC,Crops,21,Brazil,5510,Production,83,Sorghum,2013,2013,tonnes,2126179,,Official data
+QC,Crops,21,Brazil,5510,Production,83,Sorghum,2014,2014,tonnes,2279114,,Official data
+QC,Crops,21,Brazil,5510,Production,236,Soybeans,2010,2010,tonnes,68756343,,Official data
+QC,Crops,21,Brazil,5510,Production,236,Soybeans,2011,2011,tonnes,74815447,,Official data
+QC,Crops,21,Brazil,5510,Production,236,Soybeans,2012,2012,tonnes,65848857,,Official data
+QC,Crops,21,Brazil,5510,Production,236,Soybeans,2013,2013,tonnes,81724477,,Official data
+QC,Crops,21,Brazil,5510,Production,236,Soybeans,2014,2014,tonnes,86760520,,Official data
+QC,Crops,21,Brazil,5510,Production,544,Strawberries,2010,2010,tonnes,3065,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,544,Strawberries,2011,2011,tonnes,3122,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,544,Strawberries,2012,2012,tonnes,3200,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,544,Strawberries,2013,2013,tonnes,3200,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,544,Strawberries,2014,2014,tonnes,3257,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,156,Sugar cane,2010,2010,tonnes,717463793,,Official data
+QC,Crops,21,Brazil,5510,Production,156,Sugar cane,2011,2011,tonnes,734006059,,Official data
+QC,Crops,21,Brazil,5510,Production,156,Sugar cane,2012,2012,tonnes,721077287,,Official data
+QC,Crops,21,Brazil,5510,Production,156,Sugar cane,2013,2013,tonnes,768090444,,Official data
+QC,Crops,21,Brazil,5510,Production,156,Sugar cane,2014,2014,tonnes,736108487,,Official data
+QC,Crops,21,Brazil,5510,Production,267,Sunflower seed,2010,2010,tonnes,86608,,Official data
+QC,Crops,21,Brazil,5510,Production,267,Sunflower seed,2011,2011,tonnes,77932,,Official data
+QC,Crops,21,Brazil,5510,Production,267,Sunflower seed,2012,2012,tonnes,123646,,Official data
+QC,Crops,21,Brazil,5510,Production,267,Sunflower seed,2013,2013,tonnes,108838,,Official data
+QC,Crops,21,Brazil,5510,Production,267,Sunflower seed,2014,2014,tonnes,158563,,Official data
+QC,Crops,21,Brazil,5510,Production,122,Sweet potatoes,2010,2010,tonnes,495182,,Official data
+QC,Crops,21,Brazil,5510,Production,122,Sweet potatoes,2011,2011,tonnes,544820,,Official data
+QC,Crops,21,Brazil,5510,Production,122,Sweet potatoes,2012,2012,tonnes,479425,,Official data
+QC,Crops,21,Brazil,5510,Production,122,Sweet potatoes,2013,2013,tonnes,505350,,Official data
+QC,Crops,21,Brazil,5510,Production,122,Sweet potatoes,2014,2014,tonnes,525814,,Official data
+QC,Crops,21,Brazil,5510,Production,495,"Tangerines, mandarins, clementines, satsumas",2010,2010,tonnes,1122009,,Official data
+QC,Crops,21,Brazil,5510,Production,495,"Tangerines, mandarins, clementines, satsumas",2011,2011,tonnes,1004727,,Official data
+QC,Crops,21,Brazil,5510,Production,495,"Tangerines, mandarins, clementines, satsumas",2012,2012,tonnes,959672,,Official data
+QC,Crops,21,Brazil,5510,Production,495,"Tangerines, mandarins, clementines, satsumas",2013,2013,tonnes,937819,,Official data
+QC,Crops,21,Brazil,5510,Production,495,"Tangerines, mandarins, clementines, satsumas",2014,2014,tonnes,965167,,Official data
+QC,Crops,21,Brazil,5510,Production,667,Tea,2010,2010,tonnes,4278,,Official data
+QC,Crops,21,Brazil,5510,Production,667,Tea,2011,2011,tonnes,3520,,Official data
+QC,Crops,21,Brazil,5510,Production,667,Tea,2012,2012,tonnes,1496,,Official data
+QC,Crops,21,Brazil,5510,Production,667,Tea,2013,2013,tonnes,763,,Official data
+QC,Crops,21,Brazil,5510,Production,667,Tea,2014,2014,tonnes,1421,,Official data
+QC,Crops,21,Brazil,5510,Production,826,"Tobacco, unmanufactured",2010,2010,tonnes,787817,,Official data
+QC,Crops,21,Brazil,5510,Production,826,"Tobacco, unmanufactured",2011,2011,tonnes,951933,,Official data
+QC,Crops,21,Brazil,5510,Production,826,"Tobacco, unmanufactured",2012,2012,tonnes,810550,,Official data
+QC,Crops,21,Brazil,5510,Production,826,"Tobacco, unmanufactured",2013,2013,tonnes,850673,,Official data
+QC,Crops,21,Brazil,5510,Production,826,"Tobacco, unmanufactured",2014,2014,tonnes,862396,,Official data
+QC,Crops,21,Brazil,5510,Production,388,Tomatoes,2010,2010,tonnes,4106846,,Official data
+QC,Crops,21,Brazil,5510,Production,388,Tomatoes,2011,2011,tonnes,4416652,,Official data
+QC,Crops,21,Brazil,5510,Production,388,Tomatoes,2012,2012,tonnes,3873985,,Official data
+QC,Crops,21,Brazil,5510,Production,388,Tomatoes,2013,2013,tonnes,4187646,,Official data
+QC,Crops,21,Brazil,5510,Production,388,Tomatoes,2014,2014,tonnes,4302777,,Official data
+QC,Crops,21,Brazil,5510,Production,97,Triticale,2010,2010,tonnes,124277,,Official data
+QC,Crops,21,Brazil,5510,Production,97,Triticale,2011,2011,tonnes,90469,,Official data
+QC,Crops,21,Brazil,5510,Production,97,Triticale,2012,2012,tonnes,86466,,Official data
+QC,Crops,21,Brazil,5510,Production,97,Triticale,2013,2013,tonnes,62531,,Official data
+QC,Crops,21,Brazil,5510,Production,97,Triticale,2014,2014,tonnes,51832,,Official data
+QC,Crops,21,Brazil,5510,Production,275,Tung nuts,2010,2010,tonnes,318,,Official data
+QC,Crops,21,Brazil,5510,Production,275,Tung nuts,2011,2011,tonnes,343,,Official data
+QC,Crops,21,Brazil,5510,Production,275,Tung nuts,2012,2012,tonnes,225,,Official data
+QC,Crops,21,Brazil,5510,Production,275,Tung nuts,2013,2013,tonnes,264,,Official data
+QC,Crops,21,Brazil,5510,Production,275,Tung nuts,2014,2014,tonnes,302,,Official data
+QC,Crops,21,Brazil,5510,Production,463,"Vegetables, fresh nes",2010,2010,tonnes,2842505,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,463,"Vegetables, fresh nes",2011,2011,tonnes,2848037,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,463,"Vegetables, fresh nes",2012,2012,tonnes,2900000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,463,"Vegetables, fresh nes",2013,2013,tonnes,2900000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,463,"Vegetables, fresh nes",2014,2014,tonnes,2926795,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,222,"Walnuts, with shell",2010,2010,tonnes,5319,,Official data
+QC,Crops,21,Brazil,5510,Production,222,"Walnuts, with shell",2011,2011,tonnes,5729,,Official data
+QC,Crops,21,Brazil,5510,Production,222,"Walnuts, with shell",2012,2012,tonnes,5817,,Official data
+QC,Crops,21,Brazil,5510,Production,222,"Walnuts, with shell",2013,2013,tonnes,5228,,Official data
+QC,Crops,21,Brazil,5510,Production,222,"Walnuts, with shell",2014,2014,tonnes,5423,,Official data
+QC,Crops,21,Brazil,5510,Production,567,Watermelons,2010,2010,tonnes,2052928,,Official data
+QC,Crops,21,Brazil,5510,Production,567,Watermelons,2011,2011,tonnes,2198624,,Official data
+QC,Crops,21,Brazil,5510,Production,567,Watermelons,2012,2012,tonnes,2079547,,Official data
+QC,Crops,21,Brazil,5510,Production,567,Watermelons,2013,2013,tonnes,2163501,,Official data
+QC,Crops,21,Brazil,5510,Production,567,Watermelons,2014,2014,tonnes,2171448,,Official data
+QC,Crops,21,Brazil,5510,Production,15,Wheat,2010,2010,tonnes,6171250,,Official data
+QC,Crops,21,Brazil,5510,Production,15,Wheat,2011,2011,tonnes,5690043,,Official data
+QC,Crops,21,Brazil,5510,Production,15,Wheat,2012,2012,tonnes,4418388,,Official data
+QC,Crops,21,Brazil,5510,Production,15,Wheat,2013,2013,tonnes,5738473,,Official data
+QC,Crops,21,Brazil,5510,Production,15,Wheat,2014,2014,tonnes,6261895,,Official data
+QC,Crops,21,Brazil,5510,Production,137,Yams,2010,2010,tonnes,246707,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,137,Yams,2011,2011,tonnes,246122,Im,FAO data based on imputation methodology
+QC,Crops,21,Brazil,5510,Production,137,Yams,2012,2012,tonnes,246000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,137,Yams,2013,2013,tonnes,245000,F,FAO estimate
+QC,Crops,21,Brazil,5510,Production,137,Yams,2014,2014,tonnes,247000,F,FAO estimate
