@@ -1,0 +1,39 @@
+//Google Analytics ---------------------------------------------------------------------
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ 
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), 
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) 
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); 
+
+  ga('create', 'UA-285486-1', 'auto'); 
+  ga('send', 'pageview'); 
+//Fim de Google Analytics ---------------------------------------------------------------- 
+
+//URL minifier "COD" ---------------------------------------------------------------------
+var unique_getCod_var = '';
+function unique_getCodMiniURLQR_main(){
+	var local_url = window.location.toString();
+	if (local_url.indexOf("barragov")<0)
+	{	
+		var full_url = 'http://cod.ibge.gov.br/min?js=unique_getCod_var=&u=' + encodeURIComponent(local_url);
+		//unique_getCodMiniURLQR_ajax(full_url,unique_getCodMiniURLQR_AfterFunc);
+	}
+}
+function unique_getCodMiniURLQR_ajax(url,afterfunction) {
+	//Onde:	url = URL a ser carregada | e afterfunction = fnção a ser executada após o carregamento da url, opcional
+	var headID = document.getElementsByTagName("head")[0];
+	var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		newScript.src = url;
+		newScript.id = 'tempdatascript' + Math.floor(Math.random()*9999999);
+	headID.appendChild(newScript);		
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		newScript.onreadystatechange= function(){ if (this.readyState == 'complete' || this.readyState == 'loaded')afterfunction();}
+	}else{
+		newScript.onload = afterfunction;
+	}
+}
+function unique_getCodMiniURLQR_AfterFunc(){
+	//Matenha esta função vazia
+	}
+unique_getCodMiniURLQR_main();
+//Fim de URL minifier "COD" ---------------------------------------------------------------------

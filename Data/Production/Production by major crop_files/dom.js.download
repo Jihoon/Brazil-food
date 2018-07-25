@@ -1,0 +1,496 @@
+function $(id){
+	return document.getElementById(id)
+}
+function $tags(tagName,o){
+		if(typeof o=="string")o=$(o)
+		if(typeof o=="undefined")o=document
+		return o.getElementsByTagName(tagName)
+}
+function $new(tagName){
+	return document.createElement(tagName)
+}
+function $before(o,o2){
+	o2.parentNode.insertBefore(o,o2)
+}
+function $replace(o,o2){
+	o2.parentNode.replaceChild(o,o2)
+}
+
+function addEvent(o,evType,fn){
+	try {
+		if(o.addEventListener){
+			//Para os bons navegadores (5% do mercado).
+			o.addEventListener(evType,fn,true)
+		}else{
+			//Para o ARGH! Internet Explorer (o grande campeão e que gera dinheiro pra gente).
+			o.attachEvent("on"+evType,fn)
+		}
+	}catch(err){}
+}
+
+//Obtém o objeto que sofreu um evento
+function getSource(e){
+	if(typeof e=="undefined")e=window.event
+	var source=e.target?e.target:e.srcElement
+	if(source.nodeType==3)source=source.parentNode
+	return source
+}
+
+//Cancela um evento. Use return cancelEvent(e)
+function cancelEvent(e){
+	if(typeof(e)!="undefined" && e.preventDefault)
+		e.preventDefault()
+	return false
+}
+
+function GetW() {
+	var myWidth = 0;
+	if ( typeof( window.innerWidth ) == 'number' ) 
+		//Non-IE
+		myWidth = window.innerWidth -20;
+	else if ( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) 	{
+		//IE 6+ in 'standards compliant mode'
+		myWidth = 
+		document.documentElement.clientWidth - 16;
+	} else if ( document.body && 	( document.body.clientWidth 	|| document.body.clientHeight ) ) 	{
+		//IE 4 compatible
+		myWidth = document.body.clientWidth - 16;
+	}
+	return (myWidth);
+}
+
+// ajax.js
+try{
+	xmlhttp=new XMLHttpRequest()
+}catch(e){
+	try{
+		xmlhttp=new ActiveXObject("MSXML2.XMLHTTP")
+	}catch(E){
+		try{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+		}catch(e){
+			xmlhttp=false
+		}
+	}
+}
+
+ajax_Fila=[]
+ajax_retHTML=[]
+ajax_FilaJson=[]
+ajax_carregando="<span class='carregando'>Aguarde, carregando...</span>"
+
+function ret_doRequest(){
+	if(xmlhttp.readyState==4){
+		ajax_Fila[0][1](xmlhttp.responseText)
+		ajax_Fila.shift()
+		if(ajax_Fila.length>0)real_doRequest()
+	}
+}
+
+function doRequest(url,fn,dados){
+	ajax_Fila.push([url,fn,dados])
+	if(ajax_Fila.length==1)real_doRequest()
+}
+
+function real_doRequest(){
+	url=ajax_Fila[0][0]
+	fn=ajax_Fila[0][1]
+	dados=ajax_Fila[0][2]
+	ajax_retFunc=fn
+	method=typeof dados=="undefined"?"GET":"POST"
+	xmlhttp.open(
+		method,
+		url+(url.indexOf("?")==-1?"?":"&")+Math.random(),
+		true
+	)
+	xmlhttp.onreadystatechange=ret_doRequest
+	if(method=="POST"){
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+	}
+	dados=typeof dados=="undefined"?null:dados
+	if(dados!=null && typeof dados!="string"){
+		if(dados.nodeType){
+			dados=encodeForm(dados)
+		}else{
+			dados=encodeURI(dados)
+		}
+	}
+	xmlhttp.send(dados)
+}
+
+function ret_doHTML(t){
+	ajax_retHTML.shift().innerHTML=t
+}
+
+function doHTML(url,o,dados){
+	ajax_retHTML.push(o)
+	ajax_retHTML.innerHTML=ajax_carregando
+	doRequest(url,ret_doHTML,dados)
+}
+
+function ret_doJSON(t){
+	var f=ajax_FilaJson.shift()
+	f(eval("["+t+"]")[0])
+}
+
+function doJSON(url,f,dados){
+	ajax_FilaJson.push(f)
+	doRequest(url,ret_doJSON,dados)
+}
+
+function encodeURI(d){
+	t=""
+	for(i in d)
+		t+=encodeURIComponent(i)+"="+
+		   encodeURIComponent(d[i])+"&"
+	return t
+}
+
+function encodeForm(f){
+	var o={}
+	for(var i=0;i<f.elements.length;i++)
+		if(f[i].name!="")o[f[i].name]=f[i].value
+	return encodeURI(o)
+}
+
+// submenu.js
+
+/*function mostra(tipo, i){
+	if ( i<7 ) $tags("div","submenu")[i].className = "mostra" 
+	$tags("a","menu")[i].className = "marca_menu" 
+	esconde(i)
+}
+function esconde(i){
+	//alert($tags("div","submenu")[0].id)
+	for (j=0; j<$tags("div","submenu").length; j++) {
+		if (j != i) {
+			$tags("div","submenu")[j].className= "submenu"
+			if ( j<3 ) $tags("a","menu")[j].className = "menu_estatistica"
+			if ( j==3 ) $tags("a","menu")[j].className = "menu_geografia"
+			if ( j>3 ) $tags("a","menu")[j].className = "menu_diversos"
+		}
+	}
+}*/
+
+/* nunca mexer nessa função*/
+function mostra(e){
+	try{
+		para()
+		esconde(e)
+		var a=getSource(e)
+		var nome = a.id
+		var array_nome = nome.split("_")
+		this.nome = array_nome[1]
+		for(var i=5;i<$tags("a","menu").length;i++){
+			$tags("div","submenu")[i].style.left = (12.5 * i) +"%"
+		}
+		if ((this.nome=="indicadores")||(this.nome=="populacao")||(this.nome=="economia")||(this.nome=="geociencias")||(this.nome=="canais")) {
+			$('sub_'+this.nome).className = "mostra" 
+		//} else if (this.nome=="canais") { 
+			//$('sub_'+this.nome).className = "mostra3" 
+		} else {
+			$('sub_'+this.nome).className = "mostra2" 
+		}
+		$('menu_'+this.nome).className = "marca_menu"
+		$("submenu").className = "mostra"
+	}catch(err){}
+}
+function esconde(e){
+	var menus = $tags("a","menu")
+	var submenus = $tags("div","submenu")
+	for (i=0; i<submenus.length; i++) {
+		submenus[i].className= "nao_mostra"
+		if ( i<3 ) menus[i].className = "menu_estatistica"
+		if ( i==3) menus[i].className = "menu_geografia"
+		if ( i>3 ) menus[i].className = "menu_diversos"
+
+	}
+	$("submenu").className = ""
+}
+var intValue_menu = 0
+function espera() {
+	intValue_menu=setTimeout(esconde,50)
+}
+function para() {
+	intValue_menu=clearTimeout(intValue_menu)
+}
+function menu_init(){
+	var menus = $tags("a","menu")
+	var submenus = $tags("div","submenu")
+	for (i=0; i<menus.length; i++) {
+		addEvent(menus[i], "mouseover", mostra)
+		addEvent(menus[i], "mouseout", espera)
+		
+		//if(paginaAtual.indexOf(".php") >= 0){ // so p páginas php q funcionam c include que n existirao mais no php 5, por enquanto
+			//addEvent($tags("div","submenu")[i],"mouseover", para)
+			//addEvent($tags("div","submenu")[i],"mouseout", espera)
+		//} 
+	}
+	//páginas que usam ajax, agora todas!
+	//if(paginaAtual.indexOf(".php") < 0){
+		addEvent($("submenu"),"mouseover", para)
+		addEvent($("submenu"),"mouseout", espera)
+	//}
+}
+addEvent(window,"load", menu_init);
+//até aqui
+
+
+//somente para páginas shtm, as php, chamo o menu diretamente pelo include de php
+function chama_menu(){
+	doRequest("/home/ajax_convertmenu.php",responde_menu)
+}
+function responde_menu(t){
+	var retorno_menu_xml=t
+	$("submenu").innerHTML = retorno_menu_xml
+	try{tooltip.init()}catch (erro){}
+}
+addEvent(window,"load", chama_menu)
+
+//acaba o menu e  comeca outras funcoes
+//banners nas internas
+function sorteia_banner(){
+	try{
+		doRequest("/home/ajax/sorteio_banners.php",responde_banner)
+	}catch (erro){}
+}
+function responde_banner(t){
+	var retorno_banner_escolhidos=t
+	if ($("aleatorios")) $("aleatorios").innerHTML = retorno_banner_escolhidos
+}
+
+//posiciona rodapé
+function acerta_altura() {
+
+	var sH = document.body.scrollHeight
+	var cH = document.body.clientHeight
+	if (sH < cH ){
+		$("conteudo").style.height =(cH -150) +"px"
+		
+	} else {
+		$("conteudo").style.height =(sH -150) +"px"
+	}
+}
+addEvent(window,"load", acerta_altura)
+
+//tamanho da fonte
+var inicial = 11
+var minima = 9
+var maxima = 14
+function aumenta_fonte() {
+	for (i=0; i<$tags("a").length;i++) {
+		if ($tags("a")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("a")[i].style.fontSize)
+		}
+		if (tam_fonte <maxima ) {
+			$tags("a")[i].style.fontSize = (tam_fonte + 1) + "px"
+		}
+	}
+	for (i=0; i<$tags("p").length;i++) {
+		if ($tags("p")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("p")[i].style.fontSize)
+		}
+		if (tam_fonte <maxima ) {
+			$tags("p")[i].style.fontSize = (tam_fonte + 1) + "px"
+		}
+	}
+	for (j=0;j<7;j++) {
+		for (i=0; i<$tags("h"+j).length;i++) {
+			if ($tags("h"+j)[i].style.fontSize=="") {
+				tam_fonte = inicial
+			} else {
+				tam_fonte= parseInt($tags("h"+j)[i].style.fontSize)
+			}
+			if (tam_fonte <maxima ) {
+				$tags("h"+j)[i].style.fontSize = (tam_fonte + 1) + "px"
+			}
+		}
+	}
+}
+function diminui_fonte() {
+	for (i=0; i<$tags("a").length;i++) {
+		if ($tags("a")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("a")[i].style.fontSize)
+		}
+		if (tam_fonte> minima ) {
+			$tags("a")[i].style.fontSize = (tam_fonte - 1) + "px"
+		}
+	}
+	for (i=0; i<$tags("p").length;i++) {
+		if ($tags("p")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("p")[i].style.fontSize)
+		}
+		if (tam_fonte> minima ) {
+			$tags("p")[i].style.fontSize = (tam_fonte - 1) + "px"
+		}
+	}
+	for (j=0;j<7;j++) {
+		for (i=0; i<$tags("h"+j).length;i++) {
+			if ($tags("h"+j)[i].style.fontSize=="") {
+				tam_fonte = inicial
+			} else {
+				tam_fonte= parseInt($tags("h"+j)[i].style.fontSize)
+			}
+			if (tam_fonte >minima ) {
+				$tags("h"+j)[i].style.fontSize = (tam_fonte - 1) + "px"
+			}
+		}
+	}
+}
+
+function init_tamanho_fonte() {
+	addEvent($("texto_maior"),"click", aumenta_fonte)
+	addEvent($("texto_menor"),"click", diminui_fonte)
+}
+addEvent(window,"load", init_tamanho_fonte)
+
+
+function chamar_janela_est(){
+	window.open('/servidor_arquivos_est/','download','width=720,height=500,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}
+function chamar_janela_geo(){
+	window.open('/servidor_arquivos_geo/','download','width=720,height=500,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}
+/*function chamar_janela_sidra(){
+	window.open('/home/popups/sidra.htm','','width=270,height=180,resizable=no,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}*/
+
+//função que pega o endereço desta página, a partir de '/html...'
+function get_location() {
+	var aux1 = window.location.toString();
+	var aux2 = aux1.split('/home/')
+	var aux3 = '/home/' + aux2[1]
+}
+addEvent(window, "load", get_location)
+
+function IsNumeric(sText) {
+   var ValidChars = "0123456789. ,-<>bB/()";
+   var IsNumber=true;
+   var Char;
+   for (i = 0; i < sText.length && IsNumber == true; i++){ 
+      Char = sText.charAt(i); 
+      if (ValidChars.indexOf(Char) == -1) IsNumber = false;
+   }
+   return IsNumber;
+}
+function alinha_direita() {
+	try{
+			for (var i=0; i<$tags("td","conteudo").length;i++){
+				if (IsNumeric($tags("td","conteudo")[i].innerHTML)) {
+					$tags("td")[i].className="alinha_direita"
+				} 
+		}
+	}catch(err){}
+}
+addEvent(window, "load", alinha_direita)
+
+function desc_pdf() {
+	try{
+		for (var i=0; i<$tags("a","conteudo").length;i++){
+			array_pdf = $tags("a","conteudo")[i].href.split('.');	
+			if (array_pdf[array_pdf.length -1]=="pdf"){
+				$tags("a","conteudo")[i].title = "Para abrir e imprimir os arquivos .pdf (Portable Document Format) &eacute; necess&aacute;rio que voc&ecirc; tenha instalado no seu computador o software Adobe&reg; Acrobat&reg; Reader&reg;. Caso voc&ecirc; n&atilde;o tenha este software, utilize o link que se encontra nessa p&aacute;gina para fazer o download."
+			} 
+		}
+	}catch(err){}
+	
+}
+addEvent(window, "load", desc_pdf)
+
+// qtip.js
+
+//////////////////////////////////////////////////////////////////
+// qTip - CSS Tool Tips - por Craig Erskine
+// http://qrayg.com | http://solardreamstudios.com
+//
+// Inspirado no código de Travis Beckham
+// http://www.squidfingers.com | http://www.podlob.com
+//
+// Adaptado por Robson Junior
+// http://www.robsonjunior.com.br
+//////////////////////////////////////////////////////////////////
+
+
+
+var qTipTag = new Array("a","abbr","acronym","input","textarea"); // Array com as tags que nos implementaremos o Tool-tip
+var qTipX = 15; // qTip's X offset//
+var qTipY = 15; //qTip's Y offset//
+
+tooltip = {
+  name : "qTip",
+  offsetX : qTipX,
+  offsetY : qTipY,
+  tip : null
+}
+
+tooltip.init = function () {
+	var tipNameSpaceURI = "http://www.w3.org/1999/xhtml";
+	if(!tipContainerID){ var tipContainerID = "qTip";}
+	var tipContainer = document.getElementById(tipContainerID);
+
+	if(!tipContainer) {
+	  tipContainer = document.createElementNS ? document.createElementNS(tipNameSpaceURI, "div") : document.createElement("div");
+		tipContainer.setAttribute("id", tipContainerID);
+	  document.getElementsByTagName("body").item(0).appendChild(tipContainer);
+	}
+
+	if (!document.getElementById) return;
+	this.tip = document.getElementById (this.name);
+	if (this.tip) document.onmousemove = function (evt) {tooltip.move (evt)};
+
+	var a, sTitle;
+	for (var j = 0; j < qTipTag.length; j ++) { // loop que vai implementar o tool-tip nas tags escolhidas
+		anchors = document.getElementsByTagName ( qTipTag[j] ); // pegamos a tag escolhida
+		
+		for (var i = 0; i < anchors.length; i ++) { // atribuicao dos tool tips
+			a = anchors[i];
+			sTitle = a.getAttribute("title"); // pegamos o atributo title
+			if(sTitle) { // se estiver setado
+				a.setAttribute("tiptitle", sTitle);
+				a.removeAttribute("title");
+				a.onmouseover = function() {tooltip.show(this.getAttribute('tiptitle'))};
+				a.onmouseout = function() {tooltip.hide()};
+			}
+		}// fim do for
+	}
+}
+
+tooltip.move = function (evt) {
+	var x=0, y=0;
+	if (document.all) {// IE
+		x = (document.documentElement && document.documentElement.scrollLeft) ? document.documentElement.scrollLeft : document.body.scrollLeft;
+		y = (document.documentElement && document.documentElement.scrollTop) ? document.documentElement.scrollTop : document.body.scrollTop;
+		x += window.event.clientX;
+		y += window.event.clientY;
+		
+	} else {//Bons Navegadores
+		x = evt.pageX;
+		y = evt.pageY;
+	}
+	this.tip.style.left = (x + this.offsetX) + "px";
+	this.tip.style.top = (y + this.offsetY) + "px";
+}
+
+tooltip.show = function (text) {
+	if (!this.tip) return;
+	this.tip.innerHTML = text;
+	this.tip.style.display = "block";
+}
+
+tooltip.hide = function () {
+	if (!this.tip) return;
+	this.tip.innerHTML = "";
+	this.tip.style.display = "none";
+}
+
+window.onload = function () {
+	tooltip.init ();
+}

@@ -1,0 +1,107 @@
+
+try{
+	xmlhttp=new XMLHttpRequest()
+}catch(e){
+	try{
+		xmlhttp=new ActiveXObject("MSXML2.XMLHTTP")
+	}catch(E){
+		try{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+		}catch(e){
+			xmlhttp=false
+		}
+	}
+}
+
+ajax_Fila=[]
+ajax_retHTML=[]
+ajax_FilaJson=[]
+ajax_carregando="<span class='carregando'>Aguarde, carregando...</span>"
+
+function ret_doRequest(){
+	if(xmlhttp.readyState==4){
+		ajax_Fila[0][1](xmlhttp.responseText)
+		ajax_Fila.shift()
+		if(ajax_Fila.length>0)real_doRequest()
+	}
+}
+
+function doRequest(url,fn,dados){
+	ajax_Fila.push([url,fn,dados])
+	if(ajax_Fila.length==1)real_doRequest()
+}
+
+function real_doRequest(){
+	url=ajax_Fila[0][0]
+	fn=ajax_Fila[0][1]
+	dados=ajax_Fila[0][2]
+	ajax_retFunc=fn
+	method=typeof dados=="undefined"?"GET":"POST"
+	xmlhttp.open(
+		method,
+		url+(url.indexOf("?")==-1?"?":"&")+Math.random(),
+		true
+	)
+	xmlhttp.onreadystatechange=ret_doRequest
+	if(method=="POST"){
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+	}
+	dados=typeof dados=="undefined"?null:dados
+	if(dados!=null && typeof dados!="string"){
+		if(dados.nodeType){
+			dados=encodeForm(dados)
+		}else{
+			dados=encodeURI(dados)
+		}
+	}
+	xmlhttp.send(dados)
+}
+
+function ret_doHTML(t){
+	ajax_retHTML.shift().innerHTML=t
+}
+
+function doHTML(url,o,dados){
+	ajax_retHTML.push(o)
+	ajax_retHTML.innerHTML=ajax_carregando
+	doRequest(url,ret_doHTML,dados)
+}
+
+function ret_doJSON(t){
+	var f=ajax_FilaJson.shift()
+	f(eval("["+t+"]")[0])
+}
+
+function doJSON(url,f,dados){
+	ajax_FilaJson.push(f)
+	doRequest(url,ret_doJSON,dados)
+}
+
+function encodeURI(d){
+	t=""
+	for(i in d)
+		t+=encodeURIComponent(i)+"="+
+		   encodeURIComponent(d[i])+"&"
+	return t
+}
+
+function encodeForm(f){
+	var o={}
+	for(var i=0;i<f.elements.length;i++)
+		if(f[i].name!="")o[f[i].name]=f[i].value
+	return encodeURI(o)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,242 @@
+/*function mostra(tipo, i){
+	if ( i<7 ) $tags("div","submenu")[i].className = "mostra" 
+	$tags("a","menu")[i].className = "marca_menu" 
+	esconde(i)
+}
+function esconde(i){
+	//alert($tags("div","submenu")[0].id)
+	for (j=0; j<$tags("div","submenu").length; j++) {
+		if (j != i) {
+			$tags("div","submenu")[j].className= "submenu"
+			if ( j<3 ) $tags("a","menu")[j].className = "menu_estatistica"
+			if ( j==3 ) $tags("a","menu")[j].className = "menu_geografia"
+			if ( j>3 ) $tags("a","menu")[j].className = "menu_diversos"
+		}
+	}
+}*/
+
+/* nunca mexer nessa função*/
+function mostra(e){
+	try{
+		para()
+		esconde(e)
+		var a=getSource(e)
+		var nome = a.id
+		var array_nome = nome.split("_")
+		this.nome = array_nome[1]
+		for(var i=5;i<$tags("a","menu").length;i++){
+			$tags("div","submenu")[i].style.left = (13 * i) +"%"
+		}
+		if ((this.nome=="indicadores")||(this.nome=="populacao")||(this.nome=="economia")||(this.nome=="geociencias")||(this.nome=="channels")) {
+//		if ((this.nome=="indicadores")||(this.nome=="populacao")||(this.nome=="economia")||(this.nome=="geociencias")) {
+			$('sub_'+this.nome).className = "mostra" 
+//		} else if (this.nome=="channels") { 
+//			$('sub_'+this.nome).className = "mostra3" 
+		} else {
+			$('sub_'+this.nome).className = "mostra2" 
+		}
+		$('menu_'+this.nome).className = "marca_menu"
+		$("submenu").className = "mostra"
+	}catch(err){}
+}
+function esconde(e){
+	var menus = $tags("a","menu")
+	var submenus = $tags("div","submenu")
+	for (i=0; i<submenus.length; i++) {
+		submenus[i].className= "nao_mostra"
+		if ( i<3 ) menus[i].className = "menu_estatistica"
+		if ( i==3) menus[i].className = "menu_geografia"
+		if ( i>3 ) menus[i].className = "menu_diversos"
+
+	}
+	$("submenu").className = ""
+}
+var intValue_menu = 0
+function espera() {
+	intValue_menu=setTimeout(esconde,50)
+}
+function para() {
+	intValue_menu=clearTimeout(intValue_menu)
+}
+function menu_init(){
+	var menus = $tags("a","menu")
+	var submenus = $tags("div","submenu")
+	for (i=0; i<menus.length; i++) {
+		addEvent(menus[i], "mouseover", mostra)
+		addEvent(menus[i], "mouseout", espera)
+		
+		//if(paginaAtual.indexOf(".php") >= 0){ // so p páginas php q funcionam c include que n existirao mais no php 5, por enquanto
+			//addEvent($tags("div","submenu")[i],"mouseover", para)
+			//addEvent($tags("div","submenu")[i],"mouseout", espera)
+		//} 
+	}
+	//páginas que usam ajax, agora todas!
+	//if(paginaAtual.indexOf(".php") < 0){
+		addEvent($("submenu"),"mouseover", para)
+		addEvent($("submenu"),"mouseout", espera)
+	//}
+}
+addEvent(window,"load", menu_init);
+//até aqui
+
+
+//somente para páginas shtm, as php, chamo o menu diretamente pelo include de php
+function chama_menu(){
+	doRequest("/english/ajax_convertmenu.php",responde_menu)
+}
+function responde_menu(t){
+	var retorno_menu_xml=t
+	$("submenu").innerHTML = retorno_menu_xml
+	try{tooltip.init()}catch (erro){}
+}
+addEvent(window,"load", chama_menu)
+
+//acaba o menu e  comeca outras funcoes
+//banners nas internas
+function sorteia_banner(){
+	try{
+		doRequest("/english/ajax/sorteio_banners.php",responde_banner)
+	}catch (erro){}
+}
+function responde_banner(t){
+	var retorno_banner_escolhidos=t
+	if ($("aleatorios")) $("aleatorios").innerHTML = retorno_banner_escolhidos
+}
+
+//posiciona rodapé
+function acerta_altura() {
+
+	var sH = document.body.scrollHeight
+	var cH = document.body.clientHeight
+	if (sH < cH ){
+		$("conteudo").style.height =(cH -150) +"px"
+		
+	} else {
+		$("conteudo").style.height =(sH -150) +"px"
+	}
+}
+addEvent(window,"load", acerta_altura)
+
+//tamanho da fonte
+var inicial = 11
+var minima = 9
+var maxima = 14
+function aumenta_fonte() {
+	for (i=0; i<$tags("a").length;i++) {
+		if ($tags("a")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("a")[i].style.fontSize)
+		}
+		if (tam_fonte <maxima ) {
+			$tags("a")[i].style.fontSize = (tam_fonte + 1) + "px"
+		}
+	}
+	for (i=0; i<$tags("p").length;i++) {
+		if ($tags("p")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("p")[i].style.fontSize)
+		}
+		if (tam_fonte <maxima ) {
+			$tags("p")[i].style.fontSize = (tam_fonte + 1) + "px"
+		}
+	}
+	for (j=0;j<7;j++) {
+		for (i=0; i<$tags("h"+j).length;i++) {
+			if ($tags("h"+j)[i].style.fontSize=="") {
+				tam_fonte = inicial
+			} else {
+				tam_fonte= parseInt($tags("h"+j)[i].style.fontSize)
+			}
+			if (tam_fonte <maxima ) {
+				$tags("h"+j)[i].style.fontSize = (tam_fonte + 1) + "px"
+			}
+		}
+	}
+}
+function diminui_fonte() {
+	for (i=0; i<$tags("a").length;i++) {
+		if ($tags("a")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("a")[i].style.fontSize)
+		}
+		if (tam_fonte> minima ) {
+			$tags("a")[i].style.fontSize = (tam_fonte - 1) + "px"
+		}
+	}
+	for (i=0; i<$tags("p").length;i++) {
+		if ($tags("p")[i].style.fontSize=="") {
+			tam_fonte = inicial
+		} else {
+			tam_fonte= parseInt($tags("p")[i].style.fontSize)
+		}
+		if (tam_fonte> minima ) {
+			$tags("p")[i].style.fontSize = (tam_fonte - 1) + "px"
+		}
+	}
+	for (j=0;j<7;j++) {
+		for (i=0; i<$tags("h"+j).length;i++) {
+			if ($tags("h"+j)[i].style.fontSize=="") {
+				tam_fonte = inicial
+			} else {
+				tam_fonte= parseInt($tags("h"+j)[i].style.fontSize)
+			}
+			if (tam_fonte >minima ) {
+				$tags("h"+j)[i].style.fontSize = (tam_fonte - 1) + "px"
+			}
+		}
+	}
+}
+
+function init_tamanho_fonte() {
+	addEvent($("texto_maior"),"click", aumenta_fonte)
+	addEvent($("texto_menor"),"click", diminui_fonte)
+}
+addEvent(window,"load", init_tamanho_fonte)
+
+
+function chamar_janela_est(){
+	window.open('/servidor_arquivos_est/','download','width=720,height=500,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}
+function chamar_janela_geo(){
+	window.open('/servidor_arquivos_geo/','download','width=720,height=500,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}
+//comentar as tres linhas abaixo quando o mapas interativos voltar a funcionar
+function chamar_janela_mapas(){
+	window.open('/english/popups/mapas.htm','pop','width=270,height=180,resizable=no,toolbar=no,location=no,directories=no,status=no,menubar=no')
+}
+
+
+//função que pega o endereço desta página, a partir de '/html...'
+function get_location() {
+	var aux1 = window.location.toString();
+	var aux2 = aux1.split('/home/')
+	var aux3 = '/home/' + aux2[1]
+}
+addEvent(window, "load", get_location)
+
+function IsNumeric(sText) {
+   var ValidChars = "0123456789. ,-<>bB/()";
+   var IsNumber=true;
+   var Char;
+   for (i = 0; i < sText.length && IsNumber == true; i++){ 
+      Char = sText.charAt(i); 
+      if (ValidChars.indexOf(Char) == -1) IsNumber = false;
+   }
+   return IsNumber;
+}
+function alinha_direita() {
+	try{
+			for (var i=0; i<$tags("td","conteudo").length;i++){
+				if (IsNumeric($tags("td","conteudo")[i].innerHTML)) {
+					$tags("td")[i].className="alinha_direita"
+				} 
+		}
+	}catch(err){}
+}
+addEvent(window, "load", alinha_direita)
+
+
+
