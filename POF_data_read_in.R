@@ -197,8 +197,8 @@ a <- unique(POF.nutri.p %>% select(-code7)) %>% group_by(code5) %>% mutate(count
 food.unmapped <- food %>% filter(is.na(kcal)) %>% select(id:qty_tot, code5) %>% left_join(a %>% select(-count), by="code5") 
 
 # Merge all food obs (at home) and add eatout flag
-food.tbl <- food %>% filter(!is.na(kcal)) %>% select(id, code7, code5, POF.item, val_tot, qty_tot, kcal:vita) %>%
-  rbind(food.unmapped %>% select(id, code7, code5, POF.item=item.eng, val_tot, qty_tot, kcal:vita)) %>% 
+food.tbl <- food %>% filter(!is.na(kcal)) %>% select(id, code7, code5, POF.item, val_tot, qty_tot, kcal:Vita) %>%
+  rbind(food.unmapped %>% select(id, code7, code5, POF.item=item.eng, val_tot, qty_tot, kcal:Vita)) %>% 
   arrange(id, code7) %>%
   mutate(eatout=ifelse(floor(code5/1e3)==85, 1, 0)) %>%  # Add to-go (viagem) food as eatout
   data.table(key=c("id", "code7", "code5")) 
@@ -265,7 +265,7 @@ food.group <- food.group %>%
 
 # Master data table for food analysis
 # Merge hh characteristics
-# kcal:vita are nutrient/100g food.
+# kcal:Vita are nutrient/100g food.
 food.tbl <- food.tbl %>% rbind.fill(cons) %>% 
   mutate(code5=floor(code7/100)) %>% group_by(id) %>%
   mutate(eatout.share = sum(eatout*val_tot) / sum(val_tot),
@@ -280,7 +280,8 @@ food.tbl <- food.tbl %>% rbind.fill(cons) %>%
 
 ### Identify outeaters
 outeat.threshold <- 0.3
-outeaters <- food.tbl %>% group_by(id) %>% summarise(eatout.share=first(eatout.share)) %>% mutate(outeater=(eatout.share > outeat.threshold))
+outeaters <- food.tbl %>% group_by(id) %>% summarise(eatout.share=first(eatout.share)) %>% 
+  mutate(outeater=(eatout.share > outeat.threshold)) %>% data.table(key="id")
 
 hh.excl.outeater <- hh %>% left_join(outeaters) %>% filter(!outeater) 
 # Recalculate income groups without outeaters
@@ -302,7 +303,7 @@ hh.excl.outeater %>% group_by(cluster) %>% summarise(cut.incgrp=first(inc.percap
 
 # Master data table for food analysis
 # Merge hh characteristics
-# kcal:vita are nutrient/100g food.
+# kcal:Vita are nutrient/100g food.
 food.master <- food.tbl %>%
   inner_join(data.table(hh, key="id"), by="id") %>% data.frame() %>%
   left_join(outeaters %>% select(-eatout.share), by="id") %>% filter(!outeater) 

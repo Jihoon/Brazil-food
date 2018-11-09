@@ -21,7 +21,7 @@ POF.nutri <- read_xlsx(paste0(datadir,"171023 Nutricional values food POF2008-9 
                        range = "A4:O109", 
                        col_types=c("text", "text", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")) 
 names(POF.nutri) <- c("fgroup.agg", "fgroup", "item.prt", "item.eng", "POF.num", "cons.percap", 
-                      "kcal", "protein", "fat", "carb", "fiber", "iron", "zinc", "vita", "taco.num")
+                      "kcal", "Protein", "Fat", "Carb", "Fiber", "Iron", "Zinc", "Vita", "taco.num")
 POF.nutri <- POF.nutri %>% mutate(item.num=row_number()) %>% select(item.num, everything()) 
 
 # Mapped POF
@@ -50,7 +50,7 @@ POF.nutri.p <- POF.nutri.p %>%
   rbind(POF.nutri.p %>% filter(code5==69003) %>% slice(1) %>% mutate(item.eng="crystal sugar", code5=69087, code7=NA)) %>%
   rbind(POF.nutri.p %>% filter(code5==69003) %>% slice(1) %>% mutate(item.eng="refined sugar", code5=69001, code7=NA)) %>%
   rbind(POF.nutri.p %>% filter(code5==69003) %>% slice(1) %>% mutate(item.eng="refined sugar", code5=69086, code7=NA)) %>%
-  rbind(data.frame(code7=NA, code5=65010, item.eng="wheat flour", kcal=360, protein=9.8, fat=1.4, carb=75.1, fiber=2.3, iron=1.0, zinc=0.8, vita=NA)) 
+  rbind(data.frame(code7=NA, code5=65010, item.eng="wheat flour", kcal=360, Protein=9.8, Fat=1.4, Carb=75.1, Fiber=2.3, Iron=1.0, Zinc=0.8, Vita=NA)) 
 
 
 
